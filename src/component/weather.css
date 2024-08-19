@@ -1,5 +1,6 @@
 body{
-    background-image: url(/images/imageweather.jfif);
+  background-color: rgb(95, 175, 207);
+  background-image: url();
 }
 
 .weather-app {
@@ -44,6 +45,8 @@ body{
   
   .weather-info {
     margin-top: 20px;
+    
+    
   }
   
   .weather-info h2 {

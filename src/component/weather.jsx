@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
+import SearchBar from './SearchBar';
+import WeatherInfo from './WeatherInfo';
 import './Weather.css';
 
-const Weather = () => {
+const WeatherApp = () => {
   const [city, setCity] = useState('London');
   const [weather, setWeather] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -31,37 +33,17 @@ const Weather = () => {
     fetchWeather();
   }, [city, apiKey]);
 
-  const handleInputChange = (e) => {
-    setCity(e.target.value);
-  };
-
-  const handleSearch = () => {
-    setCity(city);
-  };
-
   return (
     <div className="weather-app">
-      <h1>Weather App</h1>
-      <div className="search">
-        <input
-          type="text"
-          value={city}
-          onChange={handleInputChange}
-          placeholder="Enter city"
-        />
-        <button onClick={handleSearch}>Search</button>
+      <div className="weather-container">
+        <h1>Weather App</h1>
+        <SearchBar city={city} setCity={setCity} />
+        {loading && <p>Loading...</p>}
+        {error && <p>{error}</p>}
+        {weather && <WeatherInfo weather={weather} />}
       </div>
-      {loading && <p>Loading...</p>}
-      {error && <p>{error}</p>}
-      {weather && (
-        <div className="weather-info">
-          <h2>Location: {weather.location.name}, {weather.location.country}</h2>
-          <p>Temperature: {Math.round(weather.current.temp_c)}°C</p>
-          <p>Condition: {weather.current.condition.text}</p>
-        </div>
-      )}
     </div>
   );
 };
 
-export default Weather;
+export default WeatherApp;
