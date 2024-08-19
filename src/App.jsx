@@ -23,13 +23,8 @@ function App() {
     </div> */}
     <div className="App">
       <Weather />
+      
     </div>
-   {/* <h1> i am a {color} to be changed</h1>
-    <button onClick={()=> setcolor("blue")}>blue</button>
-    <button onClick={()=> setcolor("green")}>green</button>
-    <button onClick={()=> setcolor("black")}>black</button>
-    <button onClick={()=> setcolor("red")}>red</button> */}
-
 
 
     </>
